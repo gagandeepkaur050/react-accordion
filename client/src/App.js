@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{use, useEffect,useState} from "react";
+import { FaBeer } from "react-icons/fa";
 
 function App() {
+  const url = "https://jsonplaceholder.typicode.com/posts";
+  const [showData, setshowData] = useState([]);
+  const loaddata = () => {
+    fetch(url,{
+      method: "GET",
+
+    }).then(res=>res.json())
+    .then((result) => {
+      if(result){
+        setshowData(result);
+      }
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  }
+  useEffect(()=> {
+    loaddata();
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>hi there</h1>
+      <h2>{JSON.stringify(showData)}</h2>
     </div>
   );
 }

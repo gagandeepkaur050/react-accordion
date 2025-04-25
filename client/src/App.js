@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="container">
-      <h5>Accordion</h5>
+      <h5 style={{justifyContent:"center", height: "100px", display: "flex", alignItems: "center", background:"orange", color: "white"}}>Accordion</h5>
       <div className="row">
         {
           showData.map((item,index) => (

@@ -9,7 +9,10 @@ const Data = ({title,body}) => {
         setshow(!show);
     }
     return (
-        <div className="accordionItem" onClick={haddleClick}>
+        <div className={show? "acoordion-open accordionItem" : "accordionItem"} onClick={haddleClick} 
+        // onMouseEnter = {() => {setshow(true)}} 
+        // onMouseLeave = {() => {setshow(false)}}
+        >
             <div className="accordionTitle">
                 <h4>{title}</h4>
                 <p>            

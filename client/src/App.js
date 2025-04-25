@@ -1,5 +1,6 @@
 import React,{use, useEffect,useState} from "react";
 import { FaBeer } from "react-icons/fa";
+import Data from "./Data";
 
 function App() {
   const url = "https://jsonplaceholder.typicode.com/posts";
@@ -24,8 +25,16 @@ function App() {
 
   return (
     <div className="container">
-      <h1>hi there</h1>
-      <h2>{JSON.stringify(showData)}</h2>
+      <h5>Accordion</h5>
+      <div className="row">
+        {
+          showData.map((item,index) => (
+            <div className="cal-xl-6 col-lg-6 col-md-6 col-sm-12" key={index}>
+              <Data {...item} />
+            </div>
+          ))
+        }
+        </div>
     </div>
   );
 }
